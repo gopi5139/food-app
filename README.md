@@ -1,6 +1,11 @@
 # food-app
 
-**server**
+**Run Server**
 ```
 npm start
+```
+
+**Run Client**
+```
+npx expo start
 ```
