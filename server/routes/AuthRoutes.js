@@ -83,4 +83,28 @@ router.post("/update-profile", async (req, res) => {
     }
 });
 
+router.post('/apartment', async (req, res) => {
+    try {
+
+        const { apartment } = req.body;  
+        if (!apartment || !apartment.apartment) {
+            return res.status(400).json({ success: false, message: "Apartment name is required" });
+        }
+
+        const apartmentName = apartment.apartment;
+
+        const existingApartment = await Apartment.findOne({ name: apartmentName.toLowerCase() });
+        if (existingApartment) {
+            return res.status(400).json({ success: false, message: "Apartment already exists" });
+        }
+
+        const newApartment = new Apartment({ name: apartmentName.toLowerCase() });
+        await newApartment.save();
+
+        res.json({ success: true, message: "Apartment added successfully!" });
+    } catch (error) {
+        res.status(500).json({ success: false, message: "Server Error" });
+    }
+});
+
 module.exports = router;

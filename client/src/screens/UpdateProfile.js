@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const UpdateProfile = () => {
     const [email, setEmail] = useState('');
     const [address, setAddress] = useState('');
+    const navigation = useNavigation();
 
     const handleSaveProfile = () => {
         if (email && address) {
             alert('Profile Saved Successfully!');
+            navigation.navigate('ApartmentScreen');
         } else {
             alert('Please fill all details');
         }
