@@ -10,7 +10,7 @@ const UpdateProfile = () => {
     const handleSaveProfile = () => {
         if (email && address) {
             alert('Profile Saved Successfully!');
-            navigation.navigate('ApartmentScreen');
+            navigation.navigate("MainApp", { screen: "Apartments" });
         } else {
             alert('Please fill all details');
         }

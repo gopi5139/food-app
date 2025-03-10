@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://192.168.1.77:8080/api/auth";
-//const API_URL = "http://192.168.1.27:8080/api/auth";
+//const API_URL = "http://192.168.1.77:8080/api/auth";
+const API_URL = "http://192.168.1.27:8080/api/auth";
 
 export const sendOTP = async (phone) => {
     return axios.post(`${API_URL}/send-otp`, { phone });
